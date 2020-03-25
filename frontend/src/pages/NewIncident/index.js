@@ -25,7 +25,7 @@ export default function NewIncident() {
             title,
             description,
             value,
-        };
+        }; 
 
         try {
             await api.post('incidents', data, {
