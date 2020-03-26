@@ -61,29 +61,29 @@ export default function Incidents() {
             <FlatList 
                 data={incidents}
                 style={styles.IncidentList}
-                keyExtractor={incident => String(incident.id)}
+                keyExtractor={incidents => String(incidents.id)}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadIncidents}
                 onEndReachedThreshold={0.5}
-                renderItem={({ item: incident }) => (
+                renderItem={({ item: incidents }) => (
                     <View style={styles.incident}>
                         <Text style={styles.incidentProperty}>ONG:</Text>
-                        <Text style={styles.incidentValue}>{incident.name}</Text>
+                        <Text style={styles.incidentValue}>{incidents.name}</Text>
 
                         <Text style={styles.incidentProperty}>CASO:</Text>
-                        <Text style={styles.incidentValue}>{incident.title}</Text>
+                        <Text style={styles.incidentValue}>{incidents.title}</Text>
 
                         <Text style={styles.incidentProperty}>VALOR:</Text>
                         <Text style={styles.incidentValue}>
                             {Intl.NumberFormat('pt-BR', { 
                                 style: 'currency', 
                                 currency: 'BRL'
-                                }).format(incident.value)}
+                                }).format(incidents.value)}
                             </Text>
 
                         <TouchableOpacity 
                             style={styles.detailsButton}
-                            onPress={() => navigationToDetail(incident)}
+                            onPress={() => navigationToDetail(incidents)}
                         >
                             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                             <Feather name="arrow-right" size={16} color="#E02041"/>
